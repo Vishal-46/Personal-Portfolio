@@ -139,13 +139,13 @@ const App = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {['home', 'about', 'tech', 'projects', 'experience', 'contact'].map((item) => (
+            {['home', 'about', 'tech', 'projects', 'streamlit', 'blog', 'experience', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize"
               >
-                {item}
+                {item === 'streamlit' ? 'Streamlit Apps' : item}
               </button>
             ))}
           </div>
