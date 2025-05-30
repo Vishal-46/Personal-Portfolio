@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Building My First Machine Learning Pipeline with Python",
+    "excerpt": "A deep dive into creating an end-to-end ML pipeline for customer segmentation using Python, Pandas, and Scikit-learn.",
+    "content": "In this project, I built a comprehensive machine learning pipeline that takes raw customer data and transforms it into actionable business insights...",
+    "author": "Vishal",
+    "publishDate": "2024-03-15",
+    "readTime": "8 min read",
+    "tags": ["Machine Learning", "Python", "Data Science"],
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Streamlit vs Flask: Choosing the Right Framework for Data Apps",
+    "excerpt": "Comparing Streamlit and Flask for building data science applications, based on my experience building dashboards.",
+    "content": "After building multiple data applications with both frameworks, I've learned when to use each one...",
+    "author": "Vishal",
+    "publishDate": "2024-03-08",
+    "readTime": "6 min read",
+    "tags": ["Streamlit", "Flask", "Web Development"],
+    "image": "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "AWS Cloud Journey: From Beginner to Building Scalable Solutions",
+    "excerpt": "My learning journey with AWS cloud services and how I built my first scalable data processing pipeline.",
+    "content": "Starting with basic EC2 instances to building complex data pipelines with Lambda and S3...",
+    "author": "Vishal",
+    "publishDate": "2024-02-28",
+    "readTime": "10 min read",
+    "tags": ["AWS", "Cloud Computing", "DevOps"],
+    "image": "https://images.pexels.com/photos/95916/pexels-photo-95916.jpeg",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "Data Visualization Best Practices: Lessons from Real Projects",
+    "excerpt": "Key insights on creating effective data visualizations that actually drive business decisions.",
+    "content": "Through my internship experiences, I've learned what makes data visualizations truly impactful...",
+    "author": "Vishal",
+    "publishDate": "2024-02-20",
+    "readTime": "7 min read",
+    "tags": ["Data Visualization", "BI Tools", "Analytics"],
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    "featured": true
+  }
+]
