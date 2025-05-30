@@ -862,12 +862,31 @@ const App = () => {
       message: ''
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      // Handle form submission here
-      console.log('Form submitted:', formData);
-      alert('Thank you for your message! I\'ll get back to you soon.');
-      setFormData({ name: '', email: '', message: '' });
+      setEmailStatus('sending');
+      
+      try {
+        // Replace these with your actual EmailJS service details
+        await emailjs.send(
+          'YOUR_SERVICE_ID',
+          'YOUR_TEMPLATE_ID',
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.message,
+          },
+          'YOUR_EMAILJS_PUBLIC_KEY'
+        );
+        
+        setEmailStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setEmailStatus(''), 3000);
+      } catch (error) {
+        console.error('EmailJS error:', error);
+        setEmailStatus('error');
+        setTimeout(() => setEmailStatus(''), 3000);
+      }
     };
 
     const handleChange = (e) => {
@@ -1002,12 +1021,37 @@ const App = () => {
                   
                   <motion.button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-medium"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    disabled={emailStatus === 'sending'}
+                    className={`w-full py-3 px-6 rounded-lg font-medium transition-all duration-300 ${
+                      emailStatus === 'sending'
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
+                    } text-white`}
+                    whileHover={emailStatus !== 'sending' ? { scale: 1.02 } : {}}
+                    whileTap={emailStatus !== 'sending' ? { scale: 0.98 } : {}}
                   >
-                    Send Message
+                    {emailStatus === 'sending' ? 'Sending...' : 'Send Message'}
                   </motion.button>
+                  
+                  {emailStatus === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-green-600 dark:text-green-400 text-center font-medium"
+                    >
+                      ✅ Message sent successfully! I'll get back to you soon.
+                    </motion.div>
+                  )}
+                  
+                  {emailStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-600 dark:text-red-400 text-center font-medium"
+                    >
+                      ❌ Failed to send message. Please try again.
+                    </motion.div>
+                  )}
                 </div>
               </form>
             </motion.div>
