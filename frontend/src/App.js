@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { 
   Github, 
   Linkedin, 
@@ -20,9 +21,23 @@ import {
   MapPin,
   Calendar,
   Award,
-  Zap
+  Zap,
+  BookOpen,
+  Clock,
+  User,
+  Tag,
+  Star,
+  TrendingUp,
+  Users,
+  Target,
+  Sparkles,
+  ArrowRight,
+  Play,
+  Activity
 } from 'lucide-react';
 import './App.css';
+import blogPosts from './data/blogPosts.json';
+import streamlitProjects from './data/streamlitProjects.json';
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
