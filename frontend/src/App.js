@@ -849,6 +849,8 @@ const App = () => {
         <TechStackSection />
         <ProjectsSection />
         <ExperienceSection />
+        <StreamlitSection />
+        <BlogSection />
         <UniqueSection />
         <ContactSection />
         <Footer />
