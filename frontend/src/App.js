@@ -360,36 +360,36 @@ const App = () => {
   );
 
   const TechStackSection = () => (
-    <section id="tech" className="py-20">
+    <section id="tech" className="py-16">
       <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Tech Stack</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Technologies and tools I work with to bring ideas to life
+          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Core Tech Stack</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Essential technologies I use for data science and web development
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
           {techStack.map((tech, index) => (
             <motion.div
               key={tech.name}
-              className="group p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
+              className="group p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5, scale: 1.05 }}
+              whileHover={{ y: -3, scale: 1.02 }}
               viewport={{ once: true }}
             >
               <div className="text-center">
-                <div className="text-4xl mb-3">{tech.icon}</div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{tech.name}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="text-3xl mb-2">{tech.icon}</div>
+                <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">{tech.name}</h3>
+                <p className="text-xs text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
                   {tech.description}
                 </p>
               </div>
