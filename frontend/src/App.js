@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import emailjs from '@emailjs/browser';
+// EmailJS import removed
 import { 
   Github, 
   Linkedin, 
@@ -39,14 +39,11 @@ import './App.css';
 import blogPosts from './data/blogPosts.json';
 
 const App = () => {
-  // Initialize EmailJS
-  useEffect(() => {
-    emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your EmailJS public key
-  }, []);
+  // EmailJS useEffect init removed
 
   const [darkMode, setDarkMode] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [emailStatus, setEmailStatus] = useState('');
+  // emailStatus state removed
   const { scrollYProgress } = useScroll();
   
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
@@ -712,45 +709,7 @@ const App = () => {
   );
 
   const ContactSection = () => {
-    const [formData, setFormData] = useState({
-      name: '',
-      email: '',
-      message: ''
-    });
-
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      setEmailStatus('sending');
-      
-      try {
-        // Replace these with your actual EmailJS service details
-        await emailjs.send(
-          'YOUR_SERVICE_ID',
-          'YOUR_TEMPLATE_ID',
-          {
-            from_name: formData.name,
-            from_email: formData.email,
-            message: formData.message,
-          },
-          'YOUR_EMAILJS_PUBLIC_KEY'
-        );
-        
-        setEmailStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setEmailStatus(''), 3000);
-      } catch (error) {
-        console.error('EmailJS error:', error);
-        setEmailStatus('error');
-        setTimeout(() => setEmailStatus(''), 3000);
-      }
-    };
-
-    const handleChange = (e) => {
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value
-      });
-    };
+    // formData state, handleSubmit, and handleChange removed
 
     return (
       <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -828,88 +787,12 @@ const App = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg">
-                <div className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-gray-900 dark:text-white"
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-gray-900 dark:text-white"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-gray-900 dark:text-white resize-none"
-                      placeholder="Your message..."
-                    />
-                  </div>
-                  
-                  <motion.button
-                    type="submit"
-                    disabled={emailStatus === 'sending'}
-                    className={`w-full py-3 px-6 rounded-lg font-medium transition-all duration-300 ${
-                      emailStatus === 'sending'
-                        ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
-                    } text-white`}
-                    whileHover={emailStatus !== 'sending' ? { scale: 1.02 } : {}}
-                    whileTap={emailStatus !== 'sending' ? { scale: 0.98 } : {}}
-                  >
-                    {emailStatus === 'sending' ? 'Sending...' : 'Send Message'}
-                  </motion.button>
-                  
-                  {emailStatus === 'success' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="text-green-600 dark:text-green-400 text-center font-medium"
-                    >
-                      ✅ Message sent successfully! I'll get back to you soon.
-                    </motion.div>
-                  )}
-                  
-                  {emailStatus === 'error' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="text-red-600 dark:text-red-400 text-center font-medium"
-                    >
-                      ❌ Failed to send message. Please try again.
-                    </motion.div>
-                  )}
-                </div>
-              </form>
+              {/* Form removed */}
+              <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg text-center">
+                <p className="text-gray-600 dark:text-gray-300 mt-4">
+                  You can reach me at vishal@example.com.
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
