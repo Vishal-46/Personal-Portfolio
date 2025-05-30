@@ -40,8 +40,14 @@ import blogPosts from './data/blogPosts.json';
 import streamlitProjects from './data/streamlitProjects.json';
 
 const App = () => {
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your EmailJS public key
+  }, []);
+
   const [darkMode, setDarkMode] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [emailStatus, setEmailStatus] = useState('');
   const { scrollYProgress } = useScroll();
   
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
