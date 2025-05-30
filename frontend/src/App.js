@@ -37,7 +37,6 @@ import {
 } from 'lucide-react';
 import './App.css';
 import blogPosts from './data/blogPosts.json';
-import streamlitProjects from './data/streamlitProjects.json';
 
 const App = () => {
   // Initialize EmailJS
@@ -72,14 +71,64 @@ const App = () => {
     { name: 'ML/AI', icon: '🤖', description: 'Machine Learning' }
   ];
 
+  // Consolidated projects array
   const projects = [
+    // Streamlit Projects
+    {
+      title: "Real-Time Sales Analytics Dashboard",
+      description: "Interactive Streamlit dashboard for real-time sales data analysis with dynamic filtering, KPI tracking, and predictive analytics. Features: Real-time data streaming, Interactive filters and widgets, Predictive sales forecasting, Export functionality, Multi-page navigation. Highlights: Processes 100K+ records in <2 seconds, 95% forecast accuracy, Used by 50+ sales team members.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+      tech: ["Streamlit", "Pandas", "Plotly", "SQLite", "Prophet"],
+      link: "#",
+      github: "#",
+      type: 'streamlit'
+    },
+    {
+      title: "Student Performance Prediction Tool",
+      description: "ML-powered Streamlit app that predicts student academic performance based on various factors like attendance, assignments, and engagement. Features: ML model integration, Student data upload, Performance visualization, Risk assessment alerts, Downloadable reports. Highlights: 87% prediction accuracy, Helped identify at-risk students, Deployed for 3 educational institutions.",
+      image: "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86",
+      tech: ["Streamlit", "Scikit-learn", "Seaborn", "Pandas", "NumPy"],
+      link: "#",
+      github: "#",
+      type: 'streamlit'
+    },
+    {
+      title: "Financial Portfolio Optimizer",
+      description: "Streamlit application for portfolio optimization using Modern Portfolio Theory, with risk analysis and backtesting capabilities. Features: Portfolio optimization algorithms, Risk-return analysis, Historical backtesting, Monte Carlo simulation, Interactive charts. Highlights: 15% average return improvement, Supports 500+ financial instruments, 10,000+ Monte Carlo runs.",
+      image: "https://images.pexels.com/photos/95916/pexels-photo-95916.jpeg",
+      tech: ["Streamlit", "yfinance", "PyPortfolioOpt", "Plotly", "NumPy"],
+      link: "#",
+      github: "#",
+      type: 'streamlit'
+    },
+    // Experiences
+    {
+      title: 'Data Science Intern at StudAI',
+      description: 'Developed ML models for student performance prediction and built interactive dashboards for educational insights. Duration: Summer 2024. Achievements: Improved prediction accuracy by 25%, Built 3 interactive dashboards, Processed 10K+ student records.',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c7da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+      tech: [],
+      link: '#',
+      github: '#',
+      type: 'experience'
+    },
+    {
+      title: 'Web Development Intern at Canadian Tech Company',
+      description: 'Built responsive web applications and contributed to frontend architecture improvements. Duration: Spring 2024. Achievements: Delivered 5 responsive web pages, Optimized load times by 40%, Implemented modern UI/UX patterns.',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c7da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+      tech: [],
+      link: '#',
+      github: '#',
+      type: 'experience'
+    },
+    // General Projects
     {
       title: 'AI-Powered Data Analytics Dashboard',
       description: 'Interactive dashboard built with Python and Streamlit for real-time data visualization and ML predictions.',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
       tech: ['Python', 'Streamlit', 'Pandas', 'ML'],
       link: '#',
-      github: '#'
+      github: '#',
+      type: 'project'
     },
     {
       title: 'Cloud-Based ETL Pipeline',
@@ -87,7 +136,8 @@ const App = () => {
       image: 'https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86',
       tech: ['AWS', 'Python', 'Docker', 'Apache Spark'],
       link: '#',
-      github: '#'
+      github: '#',
+      type: 'project'
     },
     {
       title: 'Business Intelligence Web App',
@@ -95,24 +145,8 @@ const App = () => {
       image: 'https://images.pexels.com/photos/95916/pexels-photo-95916.jpeg',
       tech: ['Flask', 'React', 'PostgreSQL', 'D3.js'],
       link: '#',
-      github: '#'
-    }
-  ];
-
-  const experiences = [
-    {
-      company: 'StudAI',
-      role: 'Data Science Intern',
-      duration: 'Summer 2024',
-      description: 'Developed ML models for student performance prediction and built interactive dashboards for educational insights.',
-      achievements: ['Improved prediction accuracy by 25%', 'Built 3 interactive dashboards', 'Processed 10K+ student records']
-    },
-    {
-      company: 'Canadian Tech Company',
-      role: 'Web Development Intern',
-      duration: 'Spring 2024',
-      description: 'Built responsive web applications and contributed to frontend architecture improvements.',
-      achievements: ['Delivered 5 responsive web pages', 'Optimized load times by 40%', 'Implemented modern UI/UX patterns']
+      github: '#',
+      type: 'project'
     }
   ];
 
@@ -139,7 +173,7 @@ const App = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {['home', 'about', 'tech', 'projects', 'streamlit', 'blog', 'experience', 'contact'].map((item) => (
+            {['home', 'about', 'tech', 'projects', 'blog', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
@@ -177,7 +211,7 @@ const App = () => {
             exit={{ opacity: 0, height: 0 }}
           >
             <div className="flex flex-col space-y-2 mt-4">
-              {['home', 'about', 'tech', 'projects', 'streamlit', 'blog', 'experience', 'contact'].map((item) => (
+              {['home', 'about', 'tech', 'projects', 'blog', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -437,7 +471,15 @@ const App = () => {
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{project.title}</h3>
+                <div className="flex items-baseline mb-2"> {/* Changed to flex for badge alignment */}
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
+                  {project.type === 'streamlit' && (
+                    <span className="ml-2 px-2 py-0.5 text-xs bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 rounded-full">Streamlit App</span>
+                  )}
+                  {project.type === 'experience' && (
+                    <span className="ml-2 px-2 py-0.5 text-xs bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 rounded-full">Experience</span>
+                  )}
+                </div>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -466,192 +508,6 @@ const App = () => {
                     <span>Code</span>
                   </motion.a>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-
-  const ExperienceSection = () => (
-    <section id="experience" className="py-20">
-      <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Work Experience</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Professional experiences that have shaped my journey in tech
-          </p>
-        </motion.div>
-        
-        <div className="max-w-4xl mx-auto">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.company}
-              className="relative pl-8 pb-12 last:pb-0"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              {/* Timeline line */}
-              <div className="absolute left-0 top-0 bottom-0 w-px bg-blue-300 dark:bg-blue-700" />
-              
-              {/* Timeline dot */}
-              <div className="absolute left-0 top-0 w-3 h-3 bg-blue-600 rounded-full transform -translate-x-1/2" />
-              
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg ml-4">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.role}</h3>
-                    <p className="text-lg text-blue-600 dark:text-blue-400">{exp.company}</p>
-                  </div>
-                  <div className="flex items-center text-gray-600 dark:text-gray-400 mt-2 md:mt-0">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    <span>{exp.duration}</span>
-                  </div>
-                </div>
-                
-                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{exp.description}</p>
-                
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-gray-900 dark:text-white flex items-center">
-                    <Award className="w-4 h-4 mr-2 text-yellow-500" />
-                    Key Achievements
-                  </h4>
-                  <ul className="space-y-1 ml-6">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="text-gray-600 dark:text-gray-300 flex items-start">
-                        <Zap className="w-4 h-4 mr-2 text-green-500 mt-0.5 flex-shrink-0" />
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-
-  const StreamlitSection = () => (
-    <section id="streamlit" className="py-20">
-      <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Streamlit Applications</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Interactive data applications built with Streamlit for real-world impact
-          </p>
-        </motion.div>
-        
-        <div className="space-y-12">
-          {streamlitProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              className={`grid lg:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-              }`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900 dark:to-blue-900 px-4 py-2 rounded-full">
-                  <Activity className="w-5 h-5 text-green-600 dark:text-green-400" />
-                  <span className="text-green-700 dark:text-green-300 font-medium">Live Application</span>
-                </div>
-                
-                <h3 className="text-3xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
-                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="grid grid-cols-3 gap-4">
-                  {Object.entries(project.highlights).map(([key, value]) => (
-                    <motion.div
-                      key={key}
-                      className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{value}</div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400 capitalize">{key}</div>
-                    </motion.div>
-                  ))}
-                </div>
-                
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-gray-900 dark:text-white">Key Features:</h4>
-                  <ul className="space-y-2">
-                    {project.features.map((feature, i) => (
-                      <li key={i} className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
-                        <Sparkles className="w-4 h-4 text-yellow-500 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-sm rounded-full">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex space-x-4">
-                  <motion.a
-                    href={project.demoLink}
-                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-green-700 hover:to-blue-700 transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Play className="w-5 h-5" />
-                    <span>Live Demo</span>
-                  </motion.a>
-                  <motion.a
-                    href={project.codeLink}
-                    className="inline-flex items-center space-x-2 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Code className="w-5 h-5" />
-                    <span>View Code</span>
-                  </motion.a>
-                </div>
-              </div>
-              
-              <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                <motion.div
-                  className="relative group"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-80 object-cover rounded-xl shadow-2xl"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-sm font-medium">Click to explore this Streamlit application</p>
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
           ))}
@@ -1118,8 +974,8 @@ const App = () => {
         <AboutSection />
         <TechStackSection />
         <ProjectsSection />
-        <ExperienceSection />
-        <StreamlitSection />
+        {/* ExperienceSection was here */}
+        {/* StreamlitSection was here */}
         <BlogSection />
         <UniqueSection />
         <ContactSection />
