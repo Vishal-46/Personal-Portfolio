@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "title": "Real-Time Sales Analytics Dashboard",
+    "description": "Interactive Streamlit dashboard for real-time sales data analysis with dynamic filtering, KPI tracking, and predictive analytics.",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    "features": [
+      "Real-time data streaming",
+      "Interactive filters and widgets",
+      "Predictive sales forecasting",
+      "Export functionality",
+      "Multi-page navigation"
+    ],
+    "techStack": ["Streamlit", "Pandas", "Plotly", "SQLite", "Prophet"],
+    "demoLink": "#",
+    "codeLink": "#",
+    "highlights": {
+      "performance": "Processes 100K+ records in <2 seconds",
+      "accuracy": "95% forecast accuracy",
+      "users": "Used by 50+ sales team members"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Student Performance Prediction Tool",
+    "description": "ML-powered Streamlit app that predicts student academic performance based on various factors like attendance, assignments, and engagement.",
+    "image": "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86",
+    "features": [
+      "ML model integration",
+      "Student data upload",
+      "Performance visualization",
+      "Risk assessment alerts",
+      "Downloadable reports"
+    ],
+    "techStack": ["Streamlit", "Scikit-learn", "Seaborn", "Pandas", "NumPy"],
+    "demoLink": "#",
+    "codeLink": "#",
+    "highlights": {
+      "accuracy": "87% prediction accuracy",
+      "impact": "Helped identify at-risk students",
+      "deployment": "Deployed for 3 educational institutions"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Financial Portfolio Optimizer",
+    "description": "Streamlit application for portfolio optimization using Modern Portfolio Theory, with risk analysis and backtesting capabilities.",
+    "image": "https://images.pexels.com/photos/95916/pexels-photo-95916.jpeg",
+    "features": [
+      "Portfolio optimization algorithms",
+      "Risk-return analysis",
+      "Historical backtesting",
+      "Monte Carlo simulation",
+      "Interactive charts"
+    ],
+    "techStack": ["Streamlit", "yfinance", "PyPortfolioOpt", "Plotly", "NumPy"],
+    "demoLink": "#",
+    "codeLink": "#",
+    "highlights": {
+      "roi": "15% average return improvement",
+      "assets": "Supports 500+ financial instruments",
+      "simulations": "10,000+ Monte Carlo runs"
+    }
+  }
+]
