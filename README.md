@@ -96,11 +96,26 @@ To create an optimized build of the application for deployment:
 
 ## Deployment
 
-The `frontend/build/` directory contains a static build of the React application. This can be deployed to any static site hosting service, such as:
+This project is optimized for deployment on Vercel, but can also be deployed to other static site hosting services.
 
-*   Vercel
-*   Netlify
-*   GitHub Pages
-*   AWS S3 (with static website hosting enabled)
+### Vercel (Recommended)
 
-Upload the contents of the `frontend/build/` directory to your chosen hosting provider.
+This project can be easily deployed with Vercel. If your React application is in the `frontend/` subdirectory, follow these key configuration steps in your Vercel project settings:
+
+1.  **Framework Preset:** Vercel should automatically detect this as a "Create React App" project.
+2.  **Root Directory:**
+    *   In your Vercel project's settings (General > Root Directory), set this to `frontend/`.
+    *   This tells Vercel that your application's source code and `package.json` are located within the `frontend` subdirectory.
+3.  **Build and Output Settings (usually auto-detected if Root Directory is set correctly):**
+    *   **Build Command:** `npm run build` (or `yarn build`). Vercel will execute this command within the specified "Root Directory".
+    *   **Output Directory:** `build` (This is the default for Create React App and will be relative to the "Root Directory").
+    *   **Install Command:** `npm install` (or `yarn install`). Vercel will execute this within the specified "Root Directory".
+
+By setting the "Root Directory" in Vercel to `frontend/`, Vercel will handle the build process correctly and serve your site from the `frontend/build` directory. You do not need to move any files to the repository root manually.
+
+### Other Static Hosting Services
+
+For other services like Netlify, GitHub Pages, or AWS S3:
+
+1.  Build the application as described in the "Building for Production" section (this creates `frontend/build/`).
+2.  Deploy the contents of the `frontend/build/` directory to your chosen hosting provider. You may need to configure the provider to understand that the site is in a subdirectory if you are deploying the whole repository, or simply point it to the `frontend/build` directory as the publish directory.
