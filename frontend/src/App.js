@@ -542,6 +542,232 @@ const App = () => {
     </section>
   );
 
+  const StreamlitSection = () => (
+    <section id="streamlit" className="py-20">
+      <div className="container mx-auto px-6">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Streamlit Applications</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Interactive data applications built with Streamlit for real-world impact
+          </p>
+        </motion.div>
+        
+        <div className="space-y-12">
+          {streamlitProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              className={`grid lg:grid-cols-2 gap-12 items-center ${
+                index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+              }`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900 dark:to-blue-900 px-4 py-2 rounded-full">
+                  <Activity className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <span className="text-green-700 dark:text-green-300 font-medium">Live Application</span>
+                </div>
+                
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
+                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                  {project.description}
+                </p>
+                
+                <div className="grid grid-cols-3 gap-4">
+                  {Object.entries(project.highlights).map(([key, value]) => (
+                    <motion.div
+                      key={key}
+                      className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{value}</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 capitalize">{key}</div>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Key Features:</h4>
+                  <ul className="space-y-2">
+                    {project.features.map((feature, i) => (
+                      <li key={i} className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
+                        <Sparkles className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <span key={tech} className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-sm rounded-full">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="flex space-x-4">
+                  <motion.a
+                    href={project.demoLink}
+                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-green-700 hover:to-blue-700 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Play className="w-5 h-5" />
+                    <span>Live Demo</span>
+                  </motion.a>
+                  <motion.a
+                    href={project.codeLink}
+                    className="inline-flex items-center space-x-2 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Code className="w-5 h-5" />
+                    <span>View Code</span>
+                  </motion.a>
+                </div>
+              </div>
+              
+              <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                <motion.div
+                  className="relative group"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-80 object-cover rounded-xl shadow-2xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-sm font-medium">Click to explore this Streamlit application</p>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+
+  const BlogSection = () => (
+    <section id="blog" className="py-20 bg-gray-50 dark:bg-gray-800">
+      <div className="container mx-auto px-6">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Latest Blog Posts</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Sharing insights about data science, technology, and my learning journey
+          </p>
+        </motion.div>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          {blogPosts.map((post, index) => (
+            <motion.article
+              key={post.id}
+              className={`bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ${
+                post.featured ? 'md:col-span-2 lg:col-span-1' : ''
+              }`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-48 object-cover"
+                />
+                {post.featured && (
+                  <div className="absolute top-4 left-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
+                    <Star className="w-4 h-4" />
+                    <span>Featured</span>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              </div>
+              
+              <div className="p-6">
+                <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400 mb-3">
+                  <div className="flex items-center space-x-1">
+                    <User className="w-4 h-4" />
+                    <span>{post.author}</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Calendar className="w-4 h-4" />
+                    <span>{new Date(post.publishDate).toLocaleDateString()}</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Clock className="w-4 h-4" />
+                    <span>{post.readTime}</span>
+                  </div>
+                </div>
+                
+                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer">
+                  {post.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                  {post.excerpt}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {post.tags.map((tag) => (
+                    <span key={tag} className="inline-flex items-center space-x-1 px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs rounded-full">
+                      <Tag className="w-3 h-3" />
+                      <span>{tag}</span>
+                    </span>
+                  ))}
+                </div>
+                
+                <motion.button
+                  className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                  whileHover={{ x: 5 }}
+                >
+                  <span>Read More</span>
+                  <ArrowRight className="w-4 h-4" />
+                </motion.button>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+        
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.button
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <BookOpen className="w-5 h-5" />
+            <span>View All Posts</span>
+          </motion.button>
+        </motion.div>
+      </div>
+    </section>
+  );
+
   const UniqueSection = () => (
     <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
       <div className="container mx-auto px-6">
