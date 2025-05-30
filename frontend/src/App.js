@@ -177,13 +177,13 @@ const App = () => {
             exit={{ opacity: 0, height: 0 }}
           >
             <div className="flex flex-col space-y-2 mt-4">
-              {['home', 'about', 'tech', 'projects', 'experience', 'contact'].map((item) => (
+              {['home', 'about', 'tech', 'projects', 'streamlit', 'blog', 'experience', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
                   className="text-left py-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize"
                 >
-                  {item}
+                  {item === 'streamlit' ? 'Streamlit Apps' : item}
                 </button>
               ))}
             </div>
