@@ -65,18 +65,11 @@ const App = () => {
     { name: 'Python', icon: '🐍', description: 'Data Analysis & ML' },
     { name: 'R', icon: '📊', description: 'Statistical Computing' },
     { name: 'AWS', icon: '☁️', description: 'Cloud Infrastructure' },
-    { name: 'Bootstrap', icon: '🎨', description: 'Frontend Framework' },
-    { name: 'HTML/CSS', icon: '🌐', description: 'Web Technologies' },
     { name: 'Streamlit', icon: '🚀', description: 'Data Apps' },
     { name: 'Flask', icon: '🔥', description: 'Web Framework' },
     { name: 'Git', icon: '📝', description: 'Version Control' },
     { name: 'Docker', icon: '🐳', description: 'Containerization' },
-    { name: 'BI Tools', icon: '📈', description: 'Business Intelligence' },
-    { name: 'ML Algorithms', icon: '🤖', description: 'Machine Learning' },
-    { name: 'Figma', icon: '🎯', description: 'UI/UX Design' },
-    { name: 'Blender', icon: '🎭', description: '3D Modeling' },
-    { name: 'C#', icon: '⚡', description: 'Programming' },
-    { name: 'Java', icon: '☕', description: 'Backend Development' }
+    { name: 'ML/AI', icon: '🤖', description: 'Machine Learning' }
   ];
 
   const projects = [
